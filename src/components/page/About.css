@@ -1,0 +1,21 @@
+.about-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.about-item {
+  margin-bottom: 15px; /* 항목 간 간격 */
+}
+
+.about-item strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px; /* 제목과 내용 간 간격 */
+}
+
+h4 {
+  margin-bottom: 20px; /* 제목과 항목 간 간격 */
+  color: #333;
+  font-size: 1.2em;
+}

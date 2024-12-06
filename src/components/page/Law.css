@@ -1,0 +1,51 @@
+.law-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.law-title {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2a2a2a;
+}
+
+.law-section {
+  margin-bottom: 30px;
+}
+
+.law-section-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.law-paragraph {
+  margin-bottom: 15px;
+  text-indent: 1.5em;
+}
+
+@media (max-width: 768px) {
+  .law-container {
+    padding: 15px;
+  }
+
+  .law-title {
+    font-size: 1.6em;
+  }
+
+  .law-section-title {
+    font-size: 1.2em;
+  }
+}
