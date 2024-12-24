@@ -44,10 +44,9 @@ export default function ContactForm() {
         maxWidth: "600px",
         margin: "0 auto",
         padding: "20px",
-        fontFamily: "Arial",
       }}
     >
-      <h2>Contact Us</h2>
+      <h2 style={{ color: "#000" }}>Contact Us</h2>
       {submitted ? (
         <div style={{ color: "green", fontWeight: "bold", marginTop: "20px" }}>
           Thank you for your inquiry! We will get back to you soon.
@@ -57,7 +56,7 @@ export default function ContactForm() {
           <div style={{ marginBottom: "15px" }}>
             <label
               htmlFor="email"
-              style={{ display: "block", marginBottom: "5px" }}
+              style={{ display: "block", marginBottom: "5px", color: "#000" }}
             >
               Email:
             </label>
@@ -73,13 +72,15 @@ export default function ContactForm() {
                 padding: "8px",
                 border: "1px solid #ccc",
                 borderRadius: "4px",
+                backgroundColor: "#fff",
+                color: "#000",
               }}
             />
           </div>
           <div style={{ marginBottom: "15px" }}>
             <label
               htmlFor="name"
-              style={{ display: "block", marginBottom: "5px" }}
+              style={{ display: "block", marginBottom: "5px", color: "#000" }}
             >
               성함:
             </label>
@@ -95,13 +96,15 @@ export default function ContactForm() {
                 padding: "8px",
                 border: "1px solid #ccc",
                 borderRadius: "4px",
+                backgroundColor: "#fff",
+                color: "#000",
               }}
             />
           </div>
           <div style={{ marginBottom: "15px" }}>
             <label
               htmlFor="contact"
-              style={{ display: "block", marginBottom: "5px" }}
+              style={{ display: "block", marginBottom: "5px", color: "#000" }}
             >
               연락처:
             </label>
@@ -117,13 +120,15 @@ export default function ContactForm() {
                 padding: "8px",
                 border: "1px solid #ccc",
                 borderRadius: "4px",
+                backgroundColor: "#fff",
+                color: "#000",
               }}
             />
           </div>
           <div style={{ marginBottom: "15px" }}>
             <label
               htmlFor="inquiry"
-              style={{ display: "block", marginBottom: "5px" }}
+              style={{ display: "block", marginBottom: "5px", color: "#000" }}
             >
               문의 내용:
             </label>
@@ -139,6 +144,8 @@ export default function ContactForm() {
                 padding: "8px",
                 border: "1px solid #ccc",
                 borderRadius: "4px",
+                backgroundColor: "#fff",
+                color: "#000",
               }}
             ></textarea>
           </div>

@@ -2,10 +2,12 @@
   padding: 100px 200px;
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-color: #fff;
 }
 
 .about-item {
   margin-bottom: 15px; /* 항목 간 간격 */
+  color: #000;
 }
 
 .about-item strong {
