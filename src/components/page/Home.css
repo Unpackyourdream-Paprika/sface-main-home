@@ -76,6 +76,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
 }
 
 .main-section .main-three-content-wrap .main-three-inner {
@@ -125,18 +126,21 @@
   text-align: left;
   font-size: clamp(24px, 2vw, 32px);
   font-weight: 700;
+  color: #000;
 }
 
 .main-three-two-wrap .main-three-left-wrap p {
   text-align: left;
   font-size: clamp(24px, 2vw, 32px);
   font-weight: 700;
+  color: #000;
 }
 
 .main-three-three-wrap .main-three-left-wrap p {
   text-align: left;
   font-size: clamp(24px, 2vw, 32px);
   font-weight: 700;
+  color: #000;
 }
 
 .main-three-right-wrap {
