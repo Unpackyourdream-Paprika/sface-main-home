@@ -29,10 +29,8 @@ export default function Home() {
           <div className="main-three-first-wrap">
             <div className="main-three-left-wrap">
               <p>
-                찰나의 그 순간,
-                <br />
-                아티스트의 시간을 손쉽게 등록하고 <br />
-                우리만의 팬덤과 공유해보세요
+                내가 뽑고 싶은 아티스트의 순간을 한눈에 확인 가능, <br />
+                지금 바로 스페이스(Sface)에 풍덩!
               </p>
             </div>
             <div className="main-three-right-wrap">
@@ -47,16 +45,18 @@ export default function Home() {
             </div>
             <div className="main-three-left-wrap">
               <p>
-                QR코드 스캔으로 언제 어디서나 손쉽게 간직 <br /> 거래내역도
-                프로필에서 쉽게 확인 가능해요
+                찰나의 그 순간,
+                <br />
+                아티스트의 시간을 손쉽게 등록하고 <br />
+                우리만의 팬덤과 공유해보세요
               </p>
             </div>
           </div>
           <div className="main-three-three-wrap">
             <div className="main-three-left-wrap">
               <p>
-                내가 뽑고 싶은 아티스트의 순간을 한눈에 확인 가능, <br />
-                지금 바로 스페이스(Sface)에 풍덩!
+                QR코드 스캔으로 언제 어디서나 손쉽게 간직 <br /> 거래내역도
+                프로필에서 쉽게 확인 가능해요
               </p>
             </div>
             <div className="main-three-right-wrap">
