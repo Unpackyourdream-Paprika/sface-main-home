@@ -1,23 +1,110 @@
 .layout-header {
   width: 100%;
   height: 80px;
-  /* max-width: 1560px; */
-  padding: 24px;
-  background-color: #000;
+  max-width: 1480px;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
+  padding: 0 24px; 
+ 
+}
+
+.layout-header h1 {
+  cursor: pointer;
 }
 
 .layout-header-nav-warp {
   display: flex;
-  /* width: 40%; */
   justify-content: space-between;
   gap: 48px;
 }
 
 .nav-text {
-  color: #fff;
+  color: #000;
   font-size: 16px;
   font-weight: 600;
+  text-decoration: none; 
+}
+
+.nav-text:hover {
+  color: #555; 
+}
+
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1100; 
+}
+
+/* 모바일 사이드 메뉴 */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%; /* 화면 밖에서 시작 */
+  width: 280px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav.open {
+  right: 0; /* 열렸을 때 위치 */
+}
+
+.mobile-nav-content {
+  padding: 80px 24px 24px; 
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobile-nav .nav-text {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* 모바일 오버레이 */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .layout-header-nav-warp.desktop-nav {
+    display: none; /* 모바일에서는 데스크톱 네비게이션 숨기기 */
+  }
+
+  .mobile-menu-btn {
+    display: block; /* 모바일에서는 메뉴 버튼 보이기 */
+  }
+
+  .layout-header-nav-warp {
+    gap: 24px; /* 데스크톱 네비게이션 간격 조정 */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-text {
+    font-size: 14px; /* 작은 화면에서 글씨 크기 조정 */
+  }
+
+  .mobile-nav {
+    width: 100%; /* 모바일 네비게이션 너비를 전체로 설정 */
+  }
 }
