@@ -4,6 +4,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./components/page/Home";
 import About from "./components/page/About";
 import Contact from "./components/page/Contact";
+import TermsOfService from "./components/page/TermsOfService";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
-          <Route path="/terms-of-service" element={<About />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/Contact" element={<Contact />} />
         </Route>
 
