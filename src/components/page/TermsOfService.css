@@ -1,0 +1,33 @@
+.terms-service-container {
+  max-width: 1480px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  padding: 100px 24px;
+}
+
+.terms-service-item {
+  margin-bottom: 15px; /* 항목 간 간격 */
+  color: #000;
+}
+
+.about-item strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px; /* 제목과 내용 간 간격 */
+}
+
+h4 {
+  margin-bottom: 20px; /* 제목과 항목 간 간격 */
+  color: #333;
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .terms-service-container {
+    padding: 32px 24px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+}

@@ -48,7 +48,7 @@
 @font-face {
   font-family: "Freesentation";
   src: url("/Freesentation/Freesentation-6SemiBold.ttf") format("truetype");
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -115,4 +115,9 @@ p {
 
 .read-the-docs {
   color: #888;
+}
+
+
+a {
+  font-weight: 400;
 }

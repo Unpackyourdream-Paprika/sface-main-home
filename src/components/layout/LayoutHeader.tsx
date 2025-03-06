@@ -27,17 +27,13 @@ export default function LayoutHeader() {
       <Link to="/Contact" className="nav-text" onClick={onLinkClick}>
         Contact
       </Link>
-      <Link to="/About" className="nav-text" onClick={onLinkClick}>
+      <Link to="/about" className="nav-text" onClick={onLinkClick}>
         개인정보처리방침
       </Link>
-      <a
-        href="/space-agree.pdf"
-        className="nav-text"
-        download="space-agree.pdf"
-        onClick={onLinkClick}
-      >
-        스페이스 이용약관
-      </a>
+
+      <Link to="terms-of-service" className="nav-text">
+        서비스 이용약관
+      </Link>
     </>
   );
 

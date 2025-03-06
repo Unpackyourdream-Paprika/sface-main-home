@@ -9,16 +9,17 @@ export default function LayoutFooter() {
         <div className="footer-section">
           <ul>
             <li>
-              <a
+              <Link to="terms-of-service">서비스 이용약관</Link>
+              {/* <a
                 href="/space-agree.pdf"
-                className="nav-text"
+                
                 download="space-agree.pdf"
               >
                 서비스 이용약관
-              </a>
+              </a> */}
             </li>
             <li>
-              <Link to="/About">개인정보처리방침</Link>
+              <Link to="/about">개인정보처리방침</Link>
             </li>
             <li>
               <p>개인정보책임자 : 최원호</p>
@@ -39,6 +40,12 @@ export default function LayoutFooter() {
           <ul>
             <li>
               <p>주소 : 서울특별시 마포구 와우산로27길 28</p>
+            </li>
+            <li>
+              <p>우편번호 : 04056</p>
+            </li>
+            <li>
+              <p>운영시간 : 평일 09:00~18:00 (주말·공휴일 제외)</p>
             </li>
           </ul>
         </div>
