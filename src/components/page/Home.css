@@ -235,14 +235,17 @@
 
   .main-three-first-wrap .main-three-left-wrap p {
     text-align: center;
+    font-size: clamp(18px, 2vw, 22px);
   }
 
   .main-three-two-wrap .main-three-left-wrap p {
     text-align: center;
+    font-size: clamp(18px, 2vw, 22px);
   }
 
   .main-three-three-wrap .main-three-left-wrap p {
     text-align: center;
+    font-size: clamp(18px, 2vw, 22px);
   }
 }
 

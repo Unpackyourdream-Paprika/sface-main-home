@@ -112,4 +112,19 @@
   .footer-bottom {
     font-size: 12px;
   }
+
+  .footer-section.second ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-section ul li:nth-child(2) {
+    border-left: none;
+    padding-left: 0px;
+  }
+
+  .footer-section ul li:nth-child(3) {
+    border-left: none;
+    padding-left: 0px;
+  }
 }

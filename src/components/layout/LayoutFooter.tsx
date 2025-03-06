@@ -36,7 +36,7 @@ export default function LayoutFooter() {
         </div>
 
         {/* 세 번째 섹션: 주소 */}
-        <div className="footer-section">
+        <div className="footer-section second">
           <ul>
             <li>
               <p>주소 : 서울특별시 마포구 와우산로27길 28</p>
