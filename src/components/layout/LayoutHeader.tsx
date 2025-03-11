@@ -40,7 +40,7 @@ export default function LayoutHeader() {
   return (
     <header className="layout-header">
       <h1 onClick={onClickLogo}>
-        <img src="/Sface_logo.png" alt="logo" />
+        <img src="/header-logo.png" alt="logo" />
       </h1>
 
       {/* 데스크톱 네비게이션 */}
