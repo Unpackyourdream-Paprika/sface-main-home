@@ -7,7 +7,7 @@
   align-items: center;
   padding: 0 60px;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
 }
 
 .layout-header h1 {
@@ -21,9 +21,7 @@
 }
 
 .nav-text {
-  color: #fff;
   font-size: 16px;
-  /* font-weight: 500; */
   text-decoration: none;
 }
 
@@ -84,6 +82,10 @@
 
 /* 반응형 스타일 */
 @media (max-width: 768px) {
+  .layout-header {
+    padding: 0px 16px;
+  }
+
   .layout-header-nav-warp.desktop-nav {
     display: none; /* 모바일에서는 데스크톱 네비게이션 숨기기 */
   }
@@ -100,6 +102,7 @@
 @media (max-width: 480px) {
   .nav-text {
     font-size: 14px; /* 작은 화면에서 글씨 크기 조정 */
+    /* color: #000; */
   }
 
   .mobile-nav {

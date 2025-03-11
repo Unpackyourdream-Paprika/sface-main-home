@@ -2,11 +2,13 @@ import "./Home.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import { useHeaderStateStore } from "../../store/useHeaderStore";
 
 // 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const { setIsHeaderState } = useHeaderStateStore();
   const topWrapRef = useRef(null);
   const firstWrapRef = useRef(null);
   const twoWrapRef = useRef(null);
@@ -17,6 +19,22 @@ export default function Home() {
     // 구간 1: 첫 번째 섹션 표시 (시작 ~ "top 10%")
     // 구간 2: 두 번째 섹션 표시 ("top 10%" ~ "center 20%")
     // 구간 3: 세 번째 섹션 표시 ("center 20%" ~ 끝)
+
+    ScrollTrigger.create({
+      trigger: topWrapRef.current,
+      start: "top top",
+      end: "100% 100%",
+      onEnter: () => {
+        setIsHeaderState(true);
+      },
+
+      onEnterBack: () => {
+        setIsHeaderState(true);
+      },
+      onLeaveBack: () => {
+        setIsHeaderState(false);
+      },
+    });
 
     // 첫 번째 섹션: top 10% 지점에서 사라짐
     ScrollTrigger.create({
@@ -48,7 +66,6 @@ export default function Home() {
           ease: "power2.inOut",
         });
       },
-
     });
 
     // 세 번째 섹션: center 20% 지점에서 나타남
@@ -104,8 +121,12 @@ export default function Home() {
               내가 찍은 나의 최애, 즉시 프린트해 간직하세요!
             </p>
             <div className="left-store-wrap">
-              <img src={"/main-top/app-store.png"} />
-              <img src={"/main-top/google-play.png"} />
+              <a href="/" className="abutton">
+                <img src={"/google-play.png"} alt="google-play.png" />
+              </a>
+              <a href="/" className="abutton">
+                <img src={"/app-store.png"} alt="app-store.png" />
+              </a>
             </div>
           </div>
         </div>
@@ -156,10 +177,18 @@ export default function Home() {
 
       <div className="bottom-gradient-box">
         <div className="inner-bottom-gradient-box">
-          <h1>지금 바로 스페이스를 만나보세요!</h1>
+          <img src={"/bottom-logo-sface.png"} alt="bottom-logo-image" />
+          <h1>
+            혼자가 아닌 모두와 함께 <br /> 아티스트의 찬란한 순간을 공유,
+            스페이스
+          </h1>
           <div className="bottom-store-wrap">
-            <img src={"/main-top/app-store.png"} />
-            <img src={"/main-top/google-play.png"} />
+            <a href="/" className="abutton">
+              <img src={"/google-play.png"} alt="google-play.png" />
+            </a>
+            <a href="/" className="abutton">
+              <img src={"/app-store.png"} alt="app-store.png" />
+            </a>
           </div>
         </div>
       </div>

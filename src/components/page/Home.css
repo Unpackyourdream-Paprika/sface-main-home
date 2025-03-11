@@ -11,7 +11,7 @@
 .main-section .main-top-section {
   width: 100%;
   height: 100vh;
-  max-height: 720px;
+  max-height: 900px;
   background-image: url("/public/top-bg/bg.jpg");
   background-size: cover;
   background-position: center;
@@ -33,6 +33,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 24px;
+}
+
+.main-top-left-wrap .abutton {
+  padding: 10px 20px;
+  background: #438489;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-top-left-wrap p {
@@ -40,6 +50,7 @@
   font-size: clamp(24px, 4vw, 46px);
   font-weight: 600;
   color: #fff;
+  line-height: 48px;
 }
 
 .main-top-left-wrap .left-store-wrap {
@@ -89,7 +100,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   gap: 48px;
   justify-content: center;
@@ -101,7 +112,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   gap: 48px;
   justify-content: center;
@@ -113,7 +124,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   gap: 48px;
   justify-content: center;
@@ -172,8 +183,8 @@
 .bottom-gradient-box {
   position: relative;
   width: 100%;
-  height: 300px;
-  background: linear-gradient(to right, #a5f1ff 0%, #4b8df8 100%);
+  height: 900px;
+  background: #f2f8f7;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -187,13 +198,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 36px;
 }
 
 .bottom-gradient-box h1 {
   font-weight: 800;
-  font-size: clamp(36px, 3.2vw, 60px);
-  color: #fff;
+  text-align: center;
+  font-size: clamp(24px, 4vw, 36px);
+  color: black;
 }
 
 .bottom-gradient-box .bottom-store-wrap {
@@ -202,9 +214,19 @@
   gap: 16px;
 }
 
+.bottom-store-wrap .abutton {
+  padding: 10px 20px;
+  background: #438489;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   .bottom-gradient-box {
     margin-top: 100px;
+    height: 600px;
   }
 
   .main-top-left-wrap h1 {
@@ -239,7 +261,7 @@
 
   .main-three-right-wrap img {
     width: 100%;
-    max-width: calc((100% - 10%) - 4px);
+    max-width: calc((100% - 35%) - 4px);
     max-height: 600px;
   }
 
@@ -257,30 +279,41 @@
     text-align: center;
     font-size: clamp(18px, 2vw, 22px);
   }
+
+  .main-top-left-wrap p {
+    text-align: center;
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 600;
+    color: #fff;
+    line-height: 26px;
+  }
+
+  .main-section .main-three-content-wrap .main-three-inner {
+    margin: 100px 0px;
+  }
 }
 
 @media (max-width: 480px) {
   .main-three-inner .main-three-first-wrap {
-    height: 150vh;
+    /* height: 150vh; */
   }
 
   .main-three-inner .main-three-two-wrap {
-    height: 150vh;
+    /* height: 150vh; */
   }
 
   .main-three-inner .main-three-three-wrap {
-    height: 150vh;
+    /* height: 150vh; */
   }
 
   .main-section .main-three-content-wrap .main-three-inner {
     padding-top: 0px;
-    padding-bottom: 100px;
   }
 
   .bottom-gradient-box h1 {
     font-weight: 800;
-    font-size: clamp(26px, 3.2vw, 60px);
-    color: #fff;
+    font-size: clamp(22px, 3.2vw, 26px);
+    color: black;
   }
 
   .bottom-gradient-box {

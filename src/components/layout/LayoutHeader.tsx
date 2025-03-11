@@ -1,12 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./LayoutHeader.css";
 import { Link, useNavigate } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import { useHeaderStateStore } from "../../store/useHeaderStore";
 
 export default function LayoutHeader() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isHeaderState } = useHeaderStateStore();
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  console.log(isHeaderState, "isHeaderState?");
+
+  // 화면 크기 변경 감지
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // 이벤트 리스너 등록
+    window.addEventListener("resize", handleResize);
+
+    // 컴포넌트 언마운트 시 이벤트 리스너 제거
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -21,17 +42,37 @@ export default function LayoutHeader() {
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
+
+  const getTextColor = () => {
+    // 모바일이면 무조건 검은색, 아니면 isHeaderState에 따라 결정
+    return isMobile ? "black" : (isHeaderState ? "black" : "white");
+  };
+
   // 네비게이션 링크들
   const navigationLinks = (
     <>
-      <Link to="/Contact" className="nav-text" onClick={onLinkClick}>
+      <Link
+        to="/Contact"
+        className={`nav-text`}
+        onClick={onLinkClick}
+        style={{ color: getTextColor() }}
+      >
         Contact
       </Link>
-      <Link to="/about" className="nav-text" onClick={onLinkClick}>
+      <Link
+        to="/about"
+        className="nav-text"
+        onClick={onLinkClick}
+        style={{ color: getTextColor() }}
+      >
         개인정보처리방침
       </Link>
 
-      <Link to="terms-of-service" className="nav-text">
+      <Link
+        to="terms-of-service"
+        className="nav-text"
+        style={{ color: getTextColor() }}
+      >
         서비스 이용약관
       </Link>
     </>
@@ -44,7 +85,7 @@ export default function LayoutHeader() {
       </h1>
 
       {/* 데스크톱 네비게이션 */}
-      <nav className="layout-header-nav-warp desktop-nav">
+      <nav className={`layout-header-nav-warp desktop-nav `}>
         {navigationLinks}
       </nav>
 
@@ -59,7 +100,7 @@ export default function LayoutHeader() {
 
       {/* 모바일 사이드 메뉴 */}
       <nav className={`mobile-nav ${isMenuOpen ? "open" : ""}`}>
-        <div className="mobile-nav-content">{navigationLinks}</div>
+        <div className="mobile-nav-content ">{navigationLinks}</div>
       </nav>
 
       {/* 모바일 오버레이 */}

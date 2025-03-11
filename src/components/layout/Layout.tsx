@@ -3,7 +3,9 @@ import { Outlet } from "react-router-dom";
 import "./Layout.css";
 import LayoutFooter from "./LayoutFooter";
 
+
 const Layout = () => {
+
   return (
     <div className="body-layout">
       <LayoutHeader />

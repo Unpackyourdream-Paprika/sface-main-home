@@ -13,8 +13,8 @@
 
 .layout-footer-inner {
   width: 100%;
-  max-width: 1480px; /* 헤더와 동일한 max-width */
-  padding: 0 24px; /* 헤더와 동일한 좌우 패딩 */
+
+  padding: 0 60px; /* 헤더와 동일한 좌우 패딩 */
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -61,12 +61,11 @@
 }
 
 .footer-bottom {
-  width: 100%;
-  max-width: 1480px;
+  width: calc(100% - 120px);
+  padding: 20px 0 0; /* 상단 패딩만 적용 */
+  margin: 40px 60px 0; /* 좌우 마진으로 패딩 효과 대체 */
   text-align: center;
-  margin-top: 40px;
   border-top: 1px solid #444;
-  padding-top: 20px;
   font-size: 14px;
   color: #ccc;
 }
@@ -74,7 +73,7 @@
 /* 반응형 디자인 */
 @media (max-width: 992px) {
   .layout-footer-section {
-    padding: 40px 100px;
+    padding: 40px 0px;
   }
 }
 
@@ -93,6 +92,10 @@
   .footer-section {
     width: 100%;
     text-align: left;
+  }
+
+  .footer-bottom {
+    width: 100%;
   }
 }
 
