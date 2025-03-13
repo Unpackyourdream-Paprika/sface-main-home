@@ -152,7 +152,14 @@ export default function Home() {
               alt="sface-main"
               style={{ width: "50%", minWidth: "340px" }}
             /> */}
-            <video src={"/main-top/UFO.mp4"} autoPlay loop muted playsInline />
+            <video
+              src={"/main-top/UFO-transparent.webm"}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: "50%", minWidth: "340px" }}
+            />
             <p>
               언제 어디서나 아티스트의 순간을 스트리밍 <br />
               내가 찍은 나의 최애, 즉시 프린트해 간직하세요!
