@@ -144,6 +144,7 @@
   font-size: clamp(24px, 4vw, 56px);
   font-weight: 700;
   color: #67ebd6;
+  line-height: 4.5rem;
 }
 
 .main-three-two-wrap .main-three-left-wrap .big-text {
@@ -151,6 +152,7 @@
   font-size: clamp(24px, 4vw, 56px);
   font-weight: 700;
   color: #67ebd6;
+  line-height: 4.5rem;
 }
 
 .main-three-three-wrap .main-three-left-wrap .big-text {
@@ -158,6 +160,7 @@
   font-size: clamp(24px, 5vw, 56px);
   font-weight: 700;
   color: #67ebd6;
+  line-height: 4.5rem;
 }
 
 .main-three-four-wrap .main-three-left-wrap .big-text {
@@ -165,6 +168,7 @@
   font-size: clamp(24px, 5vw, 56px);
   font-weight: 700;
   color: #67ebd6;
+  line-height: 4.5rem;
 }
 
 .main-three-first-wrap .main-three-left-wrap .small-text {
@@ -326,21 +330,25 @@
   .main-three-first-wrap .main-three-left-wrap .big-text {
     text-align: center;
     font-size: clamp(18px, 2vw, 22px);
+    line-height: 2.4rem;
   }
 
   .main-three-two-wrap .main-three-left-wrap .big-text {
     text-align: center;
     font-size: clamp(18px, 2vw, 22px);
+    line-height: 2.4rem;
   }
 
   .main-three-three-wrap .main-three-left-wrap .big-text {
     text-align: center;
     font-size: clamp(18px, 2vw, 22px);
+    line-height: 2.4rem;
   }
 
   .main-three-four-wrap .main-three-left-wrap .big-text {
     text-align: center;
     font-size: clamp(18px, 2vw, 22px);
+    line-height: 2.4rem;
   }
 
   .main-three-first-wrap .main-three-left-wrap .small-text {

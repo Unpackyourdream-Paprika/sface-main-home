@@ -147,18 +147,12 @@ export default function Home() {
       <div className="main-top-section">
         <div className="main-top-content-wrap">
           <div className="main-top-left-wrap">
-            <img
+            {/* <img
               src={"/main-top/ufo.gif"}
               alt="sface-main"
               style={{ width: "50%", minWidth: "340px" }}
-            />
-            {/* <video
-              src={"/main-top/main-logo.mp4"}
-              autoPlay
-              loop
-              muted
-              playsInline
             /> */}
+            <video src={"/main-top/UFO.mp4"} autoPlay loop muted playsInline />
             <p>
               언제 어디서나 아티스트의 순간을 스트리밍 <br />
               내가 찍은 나의 최애, 즉시 프린트해 간직하세요!
@@ -230,7 +224,7 @@ export default function Home() {
             <div className="main-innercontent-wrapper">
               <div className="main-three-left-wrap">
                 <p className="big-text">
-                  내가 남긴긴 <br /> 나의 별, <br /> 나만의 우주!
+                  내가 남긴 <br /> 나의 별, <br /> 나만의 우주!
                 </p>
                 <p className="small-text">
                   내가 남긴 순간들로 레벨업하고, <br /> 나만의 우주를 만들어
