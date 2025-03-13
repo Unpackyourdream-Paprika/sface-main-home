@@ -12,7 +12,7 @@ export default function LayoutHeader() {
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  console.log(isHeaderState, "isHeaderState?");
+  // console.log(isHeaderState, "isHeaderState?");
 
   // 화면 크기 변경 감지
   useEffect(() => {

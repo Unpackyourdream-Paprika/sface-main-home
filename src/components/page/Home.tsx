@@ -13,6 +13,7 @@ export default function Home() {
   const firstWrapRef = useRef(null);
   const twoWrapRef = useRef(null);
   const threeWrapRef = useRef(null);
+  const fourWrapRef = useRef(null);
 
   useEffect(() => {
     // 스크롤 구간을 명확하게 구분
@@ -71,7 +72,7 @@ export default function Home() {
     // 세 번째 섹션: center 20% 지점에서 나타남
     ScrollTrigger.create({
       trigger: topWrapRef.current,
-      start: "center 25%",
+      start: "center 30%",
       onEnter: () => {
         gsap.to(twoWrapRef.current, {
           opacity: 0,
@@ -99,10 +100,41 @@ export default function Home() {
       // markers: true,
     });
 
+    ScrollTrigger.create({
+      trigger: topWrapRef.current,
+      start: "center 15%", // 뷰포트 상단에 도달했을 때
+      onEnter: () => {
+        gsap.to(threeWrapRef.current, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+        gsap.to(fourWrapRef.current, {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(threeWrapRef.current, {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+        gsap.to(fourWrapRef.current, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+      },
+      // markers: true,
+    });
+
     // 초기 상태 설정
     gsap.set(firstWrapRef.current, { opacity: 1 });
     gsap.set(twoWrapRef.current, { opacity: 0 });
     gsap.set(threeWrapRef.current, { opacity: 0 });
+    gsap.set(fourWrapRef.current, { opacity: 0 });
 
     // 컴포넌트 언마운트 시 ScrollTrigger 정리
     return () => {
@@ -135,41 +167,68 @@ export default function Home() {
       <div className="main-three-content-wrap" ref={topWrapRef}>
         <div className="main-three-inner">
           <div className="main-three-first-wrap" ref={firstWrapRef}>
-            <div className="main-three-left-wrap">
-              <p>
-                내가 뽑고 싶은 아티스트의 순간을 한눈에 확인 가능, <br />
-                지금 바로 스페이스(Sface)에 풍덩!
-              </p>
-            </div>
-            <div className="main-three-right-wrap">
-              <div className="main-three-right-circle" />
-              <img src={"/main-top/pic-1.png"} />
+            <div className="main-innercontent-wrapper">
+              <div className="main-three-left-wrap">
+                <p className="big-text">
+                  보고 싶은 <br /> 순간을 <br /> 더 가까이!
+                </p>
+                <p className="small-text">
+                  팔로잉한 사람들의 영상으로 <br /> 아티스트를 만나보세요.
+                </p>
+              </div>
+              <div className="main-three-right-wrap">
+                <img src={"/main-top/pic-1.png"} />
+              </div>
             </div>
           </div>
 
           <div className="main-three-two-wrap" ref={twoWrapRef}>
-            <div className="main-three-left-wrap">
-              <p>
-                내가 뽑고 싶은 아티스트의 순간을 한눈에 확인 가능, <br />
-                지금 바로 스페이스(Sface)에 풍덩!222
-              </p>
-            </div>
-            <div className="main-three-right-wrap">
-              <div className="main-three-right-circle" />
-              <img src={"/main-top/pic-1.png"} />
+            <div className="main-innercontent-wrapper">
+              <div className="main-three-left-wrap">
+                <p className="big-text">
+                  너와 내가 <br /> 발견하는 <br /> 특별한 순간들!
+                </p>
+                <p className="small-text">
+                  다른 시각의 사진과 영상 속에서 <br /> 우리들의 이야기를
+                  이어가세요.
+                </p>
+              </div>
+              <div className="main-three-right-wrap">
+                <img src={"/main-top/pic-2.png"} />
+              </div>
             </div>
           </div>
 
           <div className="main-three-three-wrap" ref={threeWrapRef}>
-            <div className="main-three-left-wrap">
-              <p>
-                QR코드 스캔으로 언제 어디서나 손쉽게 간직 <br /> 거래내역도
-                프로필에서 쉽게 확인 가능해요
-              </p>
+            <div className="main-innercontent-wrapper">
+              <div className="main-three-left-wrap">
+                <p className="big-text">
+                  아티스트의 <br /> 순간을 <br /> 더욱 특별하게!
+                </p>
+                <p className="small-text">
+                  손쉽게 영상을 편집하고 <br /> 나만의 감성을 담아보세요.
+                </p>
+              </div>
+              <div className="main-three-right-wrap">
+                <img src={"/main-top/pic-3.png"} />
+              </div>
             </div>
-            <div className="main-three-right-wrap">
-              <div className="main-three-right-circle" />
-              <img src={"/main-top/pic-3.png"} />
+          </div>
+
+          <div className="main-three-four-wrap" ref={fourWrapRef}>
+            <div className="main-innercontent-wrapper">
+              <div className="main-three-left-wrap">
+                <p className="big-text">
+                  내가 남긴긴 <br /> 나의 별, <br /> 나만의 우주!
+                </p>
+                <p className="small-text">
+                  내가 남긴 순간들로 레벨업하고, <br /> 나만의 우주를 만들어
+                  보세요!
+                </p>
+              </div>
+              <div className="main-three-right-wrap">
+                <img src={"/main-top/pic-4.png"} />
+              </div>
             </div>
           </div>
         </div>
@@ -178,10 +237,8 @@ export default function Home() {
       <div className="bottom-gradient-box">
         <div className="inner-bottom-gradient-box">
           <img src={"/bottom-logo-sface.png"} alt="bottom-logo-image" />
-          <h1>
-            혼자가 아닌 모두와 함께 <br /> 아티스트의 찬란한 순간을 공유,
-            스페이스
-          </h1>
+          <p className="small-text">혼자가 아닌 모두와 함께 </p>
+          <h1>아티스트의 찬란한 순간을 공유, 스페이스</h1>
           <div className="bottom-store-wrap">
             <a href="/" className="abutton">
               <img src={"/google-play.png"} alt="google-play.png" />
