@@ -72,7 +72,7 @@ export default function Home() {
     // 세 번째 섹션: center 20% 지점에서 나타남
     ScrollTrigger.create({
       trigger: topWrapRef.current,
-      start: "center 30%",
+      start: "center 45%",
       onEnter: () => {
         gsap.to(twoWrapRef.current, {
           opacity: 0,
