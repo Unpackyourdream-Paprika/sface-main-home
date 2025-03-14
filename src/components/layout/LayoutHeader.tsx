@@ -48,7 +48,7 @@ export default function LayoutHeader() {
     const currentPath = location.pathname;
 
     // /about 또는 /terms-of-service일 경우 검은색으로 설정
-    if (currentPath === "/about" || currentPath === "/terms-of-service") {
+    if (currentPath === "Contact" ||currentPath === "/about" || currentPath === "/terms-of-service") {
       return "black";
     }
 
