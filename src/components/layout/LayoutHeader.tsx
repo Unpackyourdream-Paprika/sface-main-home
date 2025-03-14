@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "./LayoutHeader.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { useHeaderStateStore } from "../../store/useHeaderStore";
 
 export default function LayoutHeader() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isHeaderState } = useHeaderStateStore();
 
@@ -44,9 +45,17 @@ export default function LayoutHeader() {
 
 
   const getTextColor = () => {
-    // 모바일이면 무조건 검은색, 아니면 isHeaderState에 따라 결정
+    const currentPath = location.pathname;
+
+    // /about 또는 /terms-of-service일 경우 검은색으로 설정
+    if (currentPath === "/about" || currentPath === "/terms-of-service") {
+      return "black";
+    }
+
+    // 기본 로직 (모바일이면 검은색, 아니면 isHeaderState에 따라 결정)
     return isMobile ? "black" : (isHeaderState ? "black" : "white");
   };
+
 
   // 네비게이션 링크들
   const navigationLinks = (
