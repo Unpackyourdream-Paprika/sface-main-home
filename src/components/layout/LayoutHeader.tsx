@@ -43,19 +43,19 @@ export default function LayoutHeader() {
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
-
   const getTextColor = () => {
     const currentPath = location.pathname;
 
-    // /about 또는 /terms-of-service일 경우 검은색으로 설정
-    if (currentPath === "Contact" ||currentPath === "/about" || currentPath === "/terms-of-service") {
+    if (
+      currentPath === "/Contact" ||
+      currentPath === "/about" ||
+      currentPath === "/terms-of-service"
+    ) {
       return "black";
     }
 
-    // 기본 로직 (모바일이면 검은색, 아니면 isHeaderState에 따라 결정)
-    return isMobile ? "black" : (isHeaderState ? "black" : "white");
+    return isMobile ? "black" : isHeaderState ? "black" : "white";
   };
-
 
   // 네비게이션 링크들
   const navigationLinks = (
