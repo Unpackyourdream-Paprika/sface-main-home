@@ -94,9 +94,9 @@ export default function LayoutHeader() {
       </h1>
 
       {/* 데스크톱 네비게이션 */}
-      <nav className={`layout-header-nav-warp desktop-nav `}>
+      {/* <nav className={`layout-header-nav-warp desktop-nav `}>
         {navigationLinks}
-      </nav>
+      </nav> */}
 
       {/* 모바일 메뉴 버튼 */}
       <button

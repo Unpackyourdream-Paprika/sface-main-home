@@ -1,7 +1,24 @@
+import { useEffect, useState } from "react";
 import "./LayoutFooter.css";
 import { Link } from "react-router-dom";
 
 export default function LayoutFooter() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  // 화면 크기 변경 감지
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // 이벤트 리스너 등록
+    window.addEventListener("resize", handleResize);
+
+    // 컴포넌트 언마운트 시 이벤트 리스너 제거
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <footer className="layout-footer-section">
       <div className="layout-footer-inner">
@@ -9,15 +26,19 @@ export default function LayoutFooter() {
         <div className="footer-section">
           <h4>주식회사 키오로보</h4>
           <ul>
-            <li>문의</li>
+            <li>
+              <Link to="Contact">문의</Link>
+            </li>
             <li>
               <Link to="terms-of-service">서비스 이용약관</Link>
             </li>
             <li>
               <Link to="/about">개인정보처리방침</Link>
             </li>
-            <li>개인정보책임자 : 최원호</li>
+            {!isMobile && <li>개인정보책임자 : 최원호</li>}
           </ul>
+
+          {isMobile && <p className="mobile-ceo">개인정보책임자 : 최원호</p>}
         </div>
 
         <div className="footer-section">

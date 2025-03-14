@@ -4,7 +4,7 @@
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: #fff;
-  padding: 100px 24px;
+  padding: 120px 24px;
 }
 
 .terms-service-item {
@@ -26,7 +26,7 @@ h4 {
 
 @media (max-width: 768px) {
   .terms-service-container {
-    padding: 32px 24px;
+    padding: 100px 24px;
     font-family: Arial, sans-serif;
     line-height: 1.6;
   }
