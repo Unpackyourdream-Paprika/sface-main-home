@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { useHeaderStateStore } from "../../store/useHeaderStore";
+import SecondSection from "../Main/SecondSection";
 
 // 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
@@ -175,6 +176,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <SecondSection />
 
       <div className="main-three-content-wrap" ref={topWrapRef}>
         <div className="main-three-inner">
