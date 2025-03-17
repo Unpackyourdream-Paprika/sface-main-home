@@ -44,10 +44,19 @@ export default function LayoutFooter() {
         <div className="footer-section">
           <ul>
             <li>
-              <p>사업자 등록번호 : 110111-878510</p>
+              <p>사업자 등록번호 : 308-81-47121</p>
             </li>
             <li>
               <p>대표 : 최원호</p>
+            </li>
+          </ul>
+        </div>
+
+        {/* aws 섹션: 주소 */}
+        <div className="footer-section second">
+          <ul>
+            <li>
+              <p>호스팅 서비스 : Amazon Web Services(AWS)</p>
             </li>
           </ul>
         </div>

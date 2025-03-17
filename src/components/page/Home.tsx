@@ -251,6 +251,7 @@ export default function Home() {
       <div className="bottom-gradient-box">
         <div className="inner-bottom-gradient-box">
           <img src={"/bottom-logo-sface.png"} alt="bottom-logo-image" />
+
           <p className="small-text">혼자가 아닌 모두와 함께 </p>
           <h1>아티스트의 찬란한 순간을 공유, 스페이스</h1>
           <div className="bottom-store-wrap">

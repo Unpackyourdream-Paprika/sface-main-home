@@ -37,7 +37,7 @@
 .second-section .second-inner-text {
   color: #fff;
   text-align: center;
-  font-size: clamp(32px, 4vw, 42px);
+  font-size: clamp(24px, 3.6vw, 42px);
 }
 
 @media (max-width: 768px) {
