@@ -105,9 +105,41 @@ export default function ContactForm() {
             ></textarea>
           </div>
           {error && <div className="error-message">{error}</div>}
-          <p className="additional-info">
-            사용자 계정 삭제 요청시 문의 메일을 보내주셔야합니다.
-          </p>
+          <div className="data-deletion-info">
+            <h3>데이터 삭제 요청 안내</h3>
+            <p className="developer-info">
+              <strong>개발자/앱 이름:</strong> SFace
+            </p>
+
+            <p className="deletion-steps">
+              <strong>데이터 삭제 요청 방법:</strong>
+              <ul>
+                <li>
+                  위 양식에서 문의 내용에 "데이터 삭제 요청"이라고 명시해 주세요
+                </li>
+                <li>계정 이메일과 사용자 ID를 반드시 포함해 주세요</li>
+                <li>삭제를 원하는 특정 데이터 유형을 명시해 주세요</li>
+              </ul>
+            </p>
+
+            <p className="data-info">
+              <strong>데이터 처리 정보:</strong>
+              <ul>
+                <li>
+                  삭제되는 데이터: 사용자 프로필, 콘텐츠, 활동 기록, 기기 정보
+                </li>
+                <li>
+                  보관되는 데이터: 법적 요구사항에 따른 거래 기록 (최대 1년간
+                  보관)
+                </li>
+                <li>데이터 삭제 요청은 접수 후 14일 이내에 처리됩니다</li>
+              </ul>
+            </p>
+
+            <p className="additional-info">
+              사용자 계정 삭제 요청시 문의 메일을 보내주셔야합니다.
+            </p>
+          </div>
           <button type="submit" className="submit-button">
             Submit
           </button>

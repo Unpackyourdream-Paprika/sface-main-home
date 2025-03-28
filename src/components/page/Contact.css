@@ -87,3 +87,25 @@
 .submit-button:hover {
   background-color: #0056b3;
 }
+
+
+.data-deletion-info {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.data-deletion-info h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.data-deletion-info ul {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.deletion-steps, .data-info, .developer-info {
+  margin-bottom: 10px;
+}
