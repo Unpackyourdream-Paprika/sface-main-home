@@ -1,7 +1,7 @@
 import "./Home.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useHeaderStateStore } from "../../store/useHeaderStore";
 import SecondSection from "../Main/SecondSection";
 import Lottie from "lottie-react";
