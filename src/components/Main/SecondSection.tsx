@@ -37,7 +37,10 @@ export default function SecondSection() {
               <img
                 src={"/main/main_top_logo.png"}
                 alt="sface-main"
-                style={{ width: "50%", minWidth: "517px" }}
+                style={{ width: "50%", minWidth: isResponsive === 'mobile' 
+                  ? "200px"
+                  : "517px"
+                }}
               />
               <p className="main-top-text">
                 Share Our Brightest Moment
