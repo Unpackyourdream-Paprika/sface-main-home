@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./LayoutHeader.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { HiMenu } from "react-icons/hi";
-import { IoClose } from "react-icons/io5";
+// import { HiMenu } from "react-icons/hi";
+// import { IoClose } from "react-icons/io5";
 import { useHeaderStateStore } from "../../store/useHeaderStore";
 
 export default function LayoutHeader() {
@@ -99,13 +99,13 @@ export default function LayoutHeader() {
       </nav> */}
 
       {/* 모바일 메뉴 버튼 */}
-      <button
+      {/* <button
         className="mobile-menu-btn"
         onClick={toggleMenu}
         aria-label={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
       >
         {isMenuOpen ? <IoClose size={24} /> : <HiMenu size={24} />}
-      </button>
+      </button> */}
 
       {/* 모바일 사이드 메뉴 */}
       <nav className={`mobile-nav ${isMenuOpen ? "open" : ""}`}>

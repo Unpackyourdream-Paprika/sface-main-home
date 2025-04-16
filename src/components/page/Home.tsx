@@ -14,7 +14,7 @@ import CatLottie from '../../../public/main/cat.json'
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  const { setIsHeaderState } = useHeaderStateStore();
+  const { setIsHeaderState, isResponsive } = useHeaderStateStore();
 
   const topWrapRef = useRef(null);
   const firstWrapRef = useRef(null);
@@ -39,6 +39,7 @@ export default function Home() {
     // 구간 1: 첫 번째 섹션 표시 (시작 ~ "top 10%")
     // 구간 2: 두 번째 섹션 표시 ("top 10%" ~ "center 20%")
     // 구간 3: 세 번째 섹션 표시 ("center 20%" ~ 끝)
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     ScrollTrigger.create({
       trigger: topWrapRef.current,
@@ -138,6 +139,7 @@ export default function Home() {
     gsap.set(firstCommentRef.current, {scale: 0})
     gsap.set(secondCommentRef.current, {scale: 0})
     gsap.set(threeCommentRef.current, {scale: 0})
+    
     gsap.set(twoImgRef.current, {y:0})
     // 두 번째 섹션: top 40% 첫번째 댓글 보여줌
     ScrollTrigger.create({
@@ -172,9 +174,12 @@ export default function Home() {
           yoyo: true,  // 원래 상태로 돌아오기
           repeat: 0  // 한 번만 실행
         });
-
         gsap.to(twoImgRef.current, {
-          y: -500,
+          y: isResponsive === 'mobile' 
+          ? -340 
+          : isResponsive === 'tablet'
+          ? -430
+          : -500,
           duration: 1,
           ease: "power2.inOut"
         })
@@ -331,7 +336,7 @@ export default function Home() {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [isResponsive]);
 
   return (
     <section className="main-section">
@@ -342,9 +347,38 @@ export default function Home() {
             <div className="main-innercontent-wrapper">
               <div className="main-three-left-wrap">
                 <p className="big-text">
-                  내 아티스트<br />더 많이!<br />더 가까이!
+                  내 아티스트
+                  <br />
+                  더 많이!
+                  {isResponsive !== 'mobile' && (
+                    <br />
+                  )}
+                  더 가까이!
                 </p>
               </div>
+              {isResponsive === 'mobile' && (
+                <div className="main-three-right-wrap">
+                  <p className="small-text">
+                    짧고 강렬한 영상 속, 생생한 아티스트의 순간들!
+                    <br />
+                    팬들과 함께 감상하고 공유하세요.
+                  </p>
+                  <div className="image-box">
+                    <div className="icons">
+                      <img src="/main/main_three_first_icon_1.png" alt="main_three_first_icon_1" />
+                      <p>숏폼 감상</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_first_icon_2.png" alt="main_three_first_icon_2" />
+                      <p>커뮤니티</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_first_icon_3.png" alt="main_three_first_icon_3" />
+                      <p>공유</p>
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className="main-three-center-wrap">
                 <Lottie className="main-fir-lottie" animationData={HeartLottie} loop={true} />
                 <div className="main-three-frame">
@@ -353,31 +387,32 @@ export default function Home() {
                   <img ref={twoPicImgRef} src={"/main/main_three_first_pic_2.png"} alt='main_three_first_pic_2' />
                   <img ref={threePicImgRef} src={"/main/main_three_first_pic_3.png"} alt='main_three_first_pic_3' />
                 </div>
-               
               </div>
-              <div className="main-three-right-wrap">
-                <p className="small-text">
-                  짧고 강렬한 영상 속,
-                  <br />
-                  생생한 아티스트의 순간들!
-                  <br />
-                  팬들과 함께 감상하고 공유하세요.
-                </p>
-                <div className="image-box">
-                  <div className="icons">
-                    <img src="/main/main_three_first_icon_1.png" alt="main_three_first_icon_1" />
-                    <p>숏폼 감상</p>
-                  </div>
-                  <div className="icons">
-                    <img src="/main/main_three_first_icon_2.png" alt="main_three_first_icon_2" />
-                    <p>커뮤니티</p>
-                  </div>
-                  <div className="icons">
-                    <img src="/main/main_three_first_icon_3.png" alt="main_three_first_icon_3" />
-                    <p>공유</p>
+              {isResponsive !== 'mobile' && (
+                <div className="main-three-right-wrap">
+                  <p className="small-text">
+                    짧고 강렬한 영상 속,
+                    <br />
+                    생생한 아티스트의 순간들!
+                    <br />
+                    팬들과 함께 감상하고 공유하세요.
+                  </p>
+                  <div className="image-box">
+                    <div className="icons">
+                      <img src="/main/main_three_first_icon_1.png" alt="main_three_first_icon_1" />
+                      <p>숏폼 감상</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_first_icon_2.png" alt="main_three_first_icon_2" />
+                      <p>커뮤니티</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_first_icon_3.png" alt="main_three_first_icon_3" />
+                      <p>공유</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
           {/*  */}
@@ -385,14 +420,35 @@ export default function Home() {
             <div className="main-innercontent-wrapper">
               <div className="main-three-left-wrap">
                 <p className="big-text">
-                  너와 내가 
-                  <br />
+                  너와 내가&nbsp;
+                  {isResponsive !== 'mobile' && (
+                    <br />
+                  )}
                   발견하는
                   <br />
                   특별한 순간들!
                 </p>
                 <Lottie className="main-cat-lottie" animationData={CatLottie} loop={true} />
               </div>
+              {isResponsive === 'mobile' && (
+                <div className="main-three-right-wrap">
+                  <p className="small-text">
+                    새로운 시선 속에서 마주한 아티스트의 순간들
+                    <br />
+                    그리고 그 속에서 펼쳐지는 우리만의 이야기!
+                  </p>
+                  <div className="image-box">
+                    <div className="icons">
+                      <img src="/main/main_three_second_icon_1.png" alt="main_three_second_icon_1" />
+                      <p>순간 포착</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_second_icon_2.png" alt="main_three_second_icon_2" />
+                      <p>댓글</p>
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className="main-three-center-wrap">
                 <div ref={firstCommentRef} className="comment-box main-second-comment-first">
                   <p className="comment-name">김*연</p>
@@ -419,27 +475,29 @@ export default function Home() {
                   <img className="second-img" ref={twoImgRef} src={"/main/main_three_second.png"} alt='main_three_first_pic_1' />
                 </div>
               </div>
-              <div className="main-three-right-wrap">
-                <p className="small-text">
-                  새로운 시선 속에서 마주한
-                  <br />
-                  아티스트의 순간들
-                  <br />
-                  그리고 그 속에서 펼쳐지는
-                  <br />
-                  우리만의 이야기!
-                </p>
-                <div className="image-box">
-                  <div className="icons">
-                    <img src="/main/main_three_second_icon_1.png" alt="main_three_second_icon_1" />
-                    <p>순간 포착</p>
-                  </div>
-                  <div className="icons">
-                    <img src="/main/main_three_second_icon_2.png" alt="main_three_second_icon_2" />
-                    <p>댓글</p>
+              {isResponsive !== 'mobile' && (
+                <div className="main-three-right-wrap">
+                  <p className="small-text">
+                    새로운 시선 속에서 마주한
+                    <br />
+                    아티스트의 순간들
+                    <br />
+                    그리고 그 속에서 펼쳐지는
+                    <br />
+                    우리만의 이야기!
+                  </p>
+                  <div className="image-box">
+                    <div className="icons">
+                      <img src="/main/main_three_second_icon_1.png" alt="main_three_second_icon_1" />
+                      <p>순간 포착</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_second_icon_2.png" alt="main_three_second_icon_2" />
+                      <p>댓글</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
           {/*  */}
@@ -447,15 +505,46 @@ export default function Home() {
             <div className="main-innercontent-wrapper">
               <div className="main-three-left-wrap">
                 <p className="big-text">
-                  쉽고
-                  <br /> 
+                  쉽고&nbsp;
+                  {isResponsive !== 'mobile' && (
+                    <br /> 
+                  )}
                   감각적인 편집
                   <br /> 
-                  나만의
-                  <br />
+                  나만의&nbsp;
+                  {isResponsive !== 'mobile' && (
+                    <br /> 
+                  )}
                   스타일로!
                 </p>
               </div>
+              {isResponsive === 'mobile' && (
+                <div className="main-three-right-wrap">
+                  <p className="small-text">
+                    감성을 더하는 손쉬운 편집으로 나만의 색을 담아보세요.
+                    <br />
+                    나만의 영상, 나만의 이야기, 그리고 나만의 우주까지!
+                  </p>
+                  <div className="image-box">
+                    <div className="icons">
+                      <img src="/main/main_three_three_icon_1.png" alt="main_three_three_icon_1" />
+                      <p>필름</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_three_icon_2.png" alt="main_three_three_icon_2" />
+                      <p>음악 삽입</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_three_icon_3.png" alt="main_three_three_icon_3" />
+                      <p>편집</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_three_icon_4.png" alt="main_three_three_icon_4" />
+                      <p>효과</p>
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className="main-three-center-wrap">
                 <Lottie className="main-star-1-lottie" animationData={StarLottie} loop={true} />
                 <Lottie className="main-star-2-lottie" animationData={StarLottie} loop={true} />
@@ -466,35 +555,37 @@ export default function Home() {
                 <Lottie className="main-flower-lottie" animationData={FlowerLottie} loop={true} />
                 <img className="three-img" ref={threeImgRef} src={"/main/main_three_three_img.png"} alt='main_three_three_img' />
               </div>
-              <div className="main-three-right-wrap">
-                <p className="small-text">
-                  감성을 더하는 손쉬운 편집으로
-                  <br />
-                  나만의 색을 담아보세요.
-                  <br />
-                  나만의 영상, 나만의 이야기,
-                  <br />
-                  그리고 나만의 우주까지!
-                </p>
-                <div className="image-box">
-                  <div className="icons">
-                    <img src="/main/main_three_three_icon_1.png" alt="main_three_three_icon_1" />
-                    <p>필름</p>
-                  </div>
-                  <div className="icons">
-                    <img src="/main/main_three_three_icon_2.png" alt="main_three_three_icon_2" />
-                    <p>음악 삽입</p>
-                  </div>
-                  <div className="icons">
-                    <img src="/main/main_three_three_icon_3.png" alt="main_three_three_icon_3" />
-                    <p>편집</p>
-                  </div>
-                  <div className="icons">
-                    <img src="/main/main_three_three_icon_4.png" alt="main_three_three_icon_4" />
-                    <p>효과</p>
+              {isResponsive !== 'mobile' && (
+                <div className="main-three-right-wrap">
+                  <p className="small-text">
+                    감성을 더하는 손쉬운 편집으로
+                    <br />
+                    나만의 색을 담아보세요.
+                    <br />
+                    나만의 영상, 나만의 이야기,
+                    <br />
+                    그리고 나만의 우주까지!
+                  </p>
+                  <div className="image-box">
+                    <div className="icons">
+                      <img src="/main/main_three_three_icon_1.png" alt="main_three_three_icon_1" />
+                      <p>필름</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_three_icon_2.png" alt="main_three_three_icon_2" />
+                      <p>음악 삽입</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_three_icon_3.png" alt="main_three_three_icon_3" />
+                      <p>편집</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_three_icon_4.png" alt="main_three_three_icon_4" />
+                      <p>효과</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -502,9 +593,38 @@ export default function Home() {
             <div className="main-innercontent-wrapper">
               <div className="main-three-left-wrap">
                 <p className="big-text">
-                  내가 남긴 <br /> 나의 별, <br /> 나만의 우주!
+                  내가 남긴&nbsp;
+                  {isResponsive !== 'mobile' && (
+                    <br /> 
+                  )}
+                  나의 별, 
+                  <br /> 
+                  나만의 우주!
                 </p>
               </div>
+              {isResponsive === 'mobile' && (
+                <div className="main-three-right-wrap">
+                  <p className="small-text">
+                    릴스와 게시물을 공유할수록 레벨 UP!
+                    <br />
+                    나만의 우주가 점점 더 풍성해지는 걸 느껴보세요.
+                  </p>
+                  <div className="image-box">
+                    <div className="icons">
+                      <img src="/main/main_three_four_icon_1.png" alt="main_three_four_icon_1" />
+                      <p>Lv.01</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_four_icon_2.png" alt="main_three_four_icon_2" />
+                      <p>Lv.02</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_four_icon_3.png" alt="main_three_four_icon_3" />
+                      <p>Lv.03</p>
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className="main-three-center-wrap">
                 <div className="main-three-frame four-frame">
                   <img className="frame-img" src="/main/main_three_four_frame.png" alt="" />
@@ -512,31 +632,33 @@ export default function Home() {
                 <img className="four-img" ref={fourImgRef} src={"/main/main_three_four_img.png"} alt='main_three_four_img' />
                 <img className="four-img-2" src={"/main/main_three_four_img_2.png"} alt='main_three_four_img_2' />
               </div>
-              <div className="main-three-right-wrap">
-                <p className="small-text">
-                  릴스와 게시물을
-                  <br />
-                  공유할수록 레벨 UP!
-                  <br />
-                  나만의 우주가 점점
-                  <br />
-                  더 풍성해지는 걸 느껴보세요.
-                </p>
-                <div className="image-box">
-                  <div className="icons">
-                    <img src="/main/main_three_four_icon_1.png" alt="main_three_four_icon_1" />
-                    <p>Lv.01</p>
-                  </div>
-                  <div className="icons">
-                    <img src="/main/main_three_four_icon_2.png" alt="main_three_four_icon_2" />
-                    <p>Lv.02</p>
-                  </div>
-                  <div className="icons">
-                    <img src="/main/main_three_four_icon_3.png" alt="main_three_four_icon_3" />
-                    <p>Lv.03</p>
+              {isResponsive !== 'mobile' && (
+                <div className="main-three-right-wrap">
+                  <p className="small-text">
+                    릴스와 게시물을
+                    <br />
+                    공유할수록 레벨 UP!
+                    <br />
+                    나만의 우주가 점점
+                    <br />
+                    더 풍성해지는 걸 느껴보세요.
+                  </p>
+                  <div className="image-box">
+                    <div className="icons">
+                      <img src="/main/main_three_four_icon_1.png" alt="main_three_four_icon_1" />
+                      <p>Lv.01</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_four_icon_2.png" alt="main_three_four_icon_2" />
+                      <p>Lv.02</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_four_icon_3.png" alt="main_three_four_icon_3" />
+                      <p>Lv.03</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
