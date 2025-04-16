@@ -1,20 +1,38 @@
 import "./Home.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useHeaderStateStore } from "../../store/useHeaderStore";
 import SecondSection from "../Main/SecondSection";
+import Lottie from "lottie-react";
+import HeartLottie from '../../../public/main/heart.json'
+import StarLottie from '../../../public/main/star.json'
+import FlowerLottie from '../../../public/main/flower.json'
+import CatLottie from '../../../public/main/cat.json'
 
 // 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const { setIsHeaderState } = useHeaderStateStore();
+
   const topWrapRef = useRef(null);
   const firstWrapRef = useRef(null);
+  const onePicImgRef = useRef(null)
+  const twoPicImgRef = useRef(null)
+  const threePicImgRef = useRef(null)
+
   const twoWrapRef = useRef(null);
+  const firstCommentRef = useRef(null)
+  const secondCommentRef = useRef(null)
+  const threeCommentRef = useRef(null)
+  const twoImgRef = useRef(null)
+
   const threeWrapRef = useRef(null);
+  const threeImgRef = useRef(null)
+
   const fourWrapRef = useRef(null);
+  const fourImgRef = useRef(null)
 
   useEffect(() => {
     // 스크롤 구간을 명확하게 구분
@@ -26,6 +44,7 @@ export default function Home() {
       trigger: topWrapRef.current,
       start: "top top",
       end: "100% 100%",
+      // markers: true,
       onEnter: () => {
         setIsHeaderState(true);
       },
@@ -38,42 +57,167 @@ export default function Home() {
       },
     });
 
-    // 첫 번째 섹션: top 10% 지점에서 사라짐
+    gsap.set(onePicImgRef.current, {y: 0})
+    gsap.set(twoPicImgRef.current, {y: 800})
+    gsap.set(threePicImgRef.current, {y: 800})
+    // 첫 번째 섹션: top 10% 지점에서 폰 이미지 변경
     ScrollTrigger.create({
       trigger: topWrapRef.current,
-      start: "center 90%",
+      start: "5% top",
+      onEnter: () => {
+        gsap.to(twoPicImgRef.current, {
+          y: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(twoPicImgRef.current, {
+          y: 800,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+      },
+      // markers: true
+    });
+
+    // 첫 번째 섹션: top 20% 지점에서 폰 이미지 변경
+    ScrollTrigger.create({
+      trigger: topWrapRef.current,
+      start: "12% top",
+      onEnter: () => {
+        gsap.to(threePicImgRef.current, {
+          y: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(threePicImgRef.current, {
+          y: 800,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+      },
+      // markers: true
+    });
+
+    // 두 번째 섹션: top 30% 아래에서 위로 올라옴
+    ScrollTrigger.create({
+      trigger: topWrapRef.current,
+      start: "20% top",
       onEnter: () => {
         gsap.to(firstWrapRef.current, {
           opacity: 0,
           duration: 0.5,
           ease: "power2.inOut",
         });
-        // 첫 번째가 사라질 때 두 번째 나타나게
         gsap.to(twoWrapRef.current, {
+          y: 0,
           opacity: 1,
           duration: 0.5,
           ease: "power2.inOut",
         });
       },
       onLeaveBack: () => {
+        gsap.to(twoWrapRef.current, {
+          y: 1000,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
         gsap.to(firstWrapRef.current, {
           opacity: 1,
           duration: 0.5,
           ease: "power2.inOut",
         });
-        // 첫 번째가 나타날 때 두 번째 사라지게
-        gsap.to(twoWrapRef.current, {
-          opacity: 0,
-          duration: 0.5,
-          ease: "power2.inOut",
+      },
+      // markers: true
+    });
+
+    gsap.set(firstCommentRef.current, {scale: 0})
+    gsap.set(secondCommentRef.current, {scale: 0})
+    gsap.set(threeCommentRef.current, {scale: 0})
+    gsap.set(twoImgRef.current, {y:0})
+    // 두 번째 섹션: top 40% 첫번째 댓글 보여줌
+    ScrollTrigger.create({
+      trigger: topWrapRef.current,
+      start: "25% top",
+      onEnter: () => {
+        gsap.to(firstCommentRef.current, {
+          scale: 1,
+          duration: 0.3,
+          ease: "back.out(3)",  // 튕기는 효과를 위한 이징 함수
+          yoyo: true,  // 원래 상태로 돌아오기
+          repeat: 0  // 한 번만 실행
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(firstCommentRef.current, {
+          scale: 0,
+          duration: 0.3,
         });
       },
     });
 
-    // 세 번째 섹션: center 20% 지점에서 나타남
+    // 두 번째 섹션: top 50% 두번째 댓글 보여줌
     ScrollTrigger.create({
       trigger: topWrapRef.current,
-      start: "center 45%",
+      start: "32% top",
+      onEnter: () => {
+        gsap.to(secondCommentRef.current, {
+          scale: 1,
+          duration: 0.3,
+          ease: "back.out(3)",  // 튕기는 효과를 위한 이징 함수
+          yoyo: true,  // 원래 상태로 돌아오기
+          repeat: 0  // 한 번만 실행
+        });
+
+        gsap.to(twoImgRef.current, {
+          y: -500,
+          duration: 1,
+          ease: "power2.inOut"
+        })
+      },
+      onLeaveBack: () => {
+        gsap.to(secondCommentRef.current, {
+          scale: 0,
+          duration: 0.3,
+        });
+        gsap.to(twoImgRef.current, {
+          y: 0,
+          duration: 1,
+          ease: "power2.inOut"
+        })
+      },
+    });
+
+    // 두 번째 섹션: top 60% 세번째 댓글 보여줌
+    ScrollTrigger.create({
+      trigger: topWrapRef.current,
+      start: "40% top",
+      onEnter: () => {
+        gsap.to(threeCommentRef.current, {
+          scale: 1,
+          duration: 0.3,
+          ease: "back.out(3)",  // 튕기는 효과를 위한 이징 함수
+          yoyo: true,  // 원래 상태로 돌아오기
+          repeat: 0  // 한 번만 실행
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(threeCommentRef.current, {
+          scale: 0,
+          duration: 0.3,
+        });
+      },
+    });
+
+    gsap.set(threeImgRef.current, { scale: 0.7 });
+    // 세 번째 섹션: top 70% 지점에서 나타남
+    ScrollTrigger.create({
+      trigger: topWrapRef.current,
+      start: "50% top",
       onEnter: () => {
         gsap.to(twoWrapRef.current, {
           opacity: 0,
@@ -81,6 +225,7 @@ export default function Home() {
           ease: "power2.inOut",
         });
         gsap.to(threeWrapRef.current, {
+          y: 0,
           opacity: 1,
           duration: 0.5,
           ease: "power2.inOut",
@@ -93,17 +238,38 @@ export default function Home() {
           ease: "power2.inOut",
         });
         gsap.to(threeWrapRef.current, {
+          y: 1000,
           opacity: 0,
           duration: 0.5,
           ease: "power2.inOut",
         });
       },
-      // markers: true,
+    });
+    // 세 번째 섹션: top 55% 지점에서 도구툴 커짐
+     ScrollTrigger.create({
+      trigger: topWrapRef.current,
+      start: "60% top",
+      onEnter: () => {
+        gsap.to(threeImgRef.current, {
+          scale: 1,
+          duration: 0.5,
+          ease: "back.out(3)",  // 튕기는 효과를 위한 이징 함수
+          yoyo: true,  // 원래 상태로 돌아오기
+          repeat: 0  // 한 번만 실행
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(threeImgRef.current, {
+          scale: 0.7,
+          duration: 0.3,
+        });
+      },
     });
 
-    ScrollTrigger.create({
+    // 네 번째 섹션: top 65% 보여짐
+     ScrollTrigger.create({
       trigger: topWrapRef.current,
-      start: "center 15%", // 뷰포트 상단에 도달했을 때
+      start: "70% top",
       onEnter: () => {
         gsap.to(threeWrapRef.current, {
           opacity: 0,
@@ -111,29 +277,53 @@ export default function Home() {
           ease: "power2.inOut",
         });
         gsap.to(fourWrapRef.current, {
+          y: 0,
           opacity: 1,
           duration: 0.5,
           ease: "power2.inOut",
         });
       },
       onLeaveBack: () => {
+        gsap.to(fourWrapRef.current, {
+          y: 1000,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
         gsap.to(threeWrapRef.current, {
           opacity: 1,
           duration: 0.5,
           ease: "power2.inOut",
         });
-        gsap.to(fourWrapRef.current, {
-          opacity: 0,
+      },
+    });
+
+    gsap.set(fourImgRef.current, { scale: 0.835 });
+    // 세 번째 섹션: top 75% 지점에서 프로플 커짐
+     ScrollTrigger.create({
+      trigger: topWrapRef.current,
+      start: "80% top",
+      onEnter: () => {
+        gsap.to(fourImgRef.current, {
+          scale: 1,
           duration: 0.5,
-          ease: "power2.inOut",
+          ease: "back.out(3)",  // 튕기는 효과를 위한 이징 함수
+          yoyo: true,  // 원래 상태로 돌아오기
+          repeat: 0  // 한 번만 실행
         });
       },
-      // markers: true,
+      onLeaveBack: () => {
+        gsap.to(fourImgRef.current, {
+          scale: 0.835,
+          duration: 0.5,
+        });
+      },
     });
+
 
     // 초기 상태 설정
     gsap.set(firstWrapRef.current, { opacity: 1 });
-    gsap.set(twoWrapRef.current, { opacity: 0 });
+    gsap.set(twoWrapRef.current, { y: 1000, opacity: 1 });
     gsap.set(threeWrapRef.current, { opacity: 0 });
     gsap.set(fourWrapRef.current, { opacity: 0 });
 
@@ -145,86 +335,165 @@ export default function Home() {
 
   return (
     <section className="main-section">
-      <div className="main-top-section">
-        <div className="main-top-content-wrap">
-          <div className="main-top-left-wrap">
-            {/* <img
-              src={"/main-top/ufo.gif"}
-              alt="sface-main"
-              style={{ width: "50%", minWidth: "340px" }}
-            /> */}
-            <video
-              src={"/main-top/UFO-transparent.webm"}
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{ width: "50%", minWidth: "340px" }}
-            />
-            <p>
-              언제 어디서나 아티스트의 순간을 스트리밍 <br />
-              내가 찍은 나의 최애, 즉시 프린트해 간직하세요!
-            </p>
-            <div className="left-store-wrap">
-              <a href="/" className="abutton">
-                <img src={"/google-play.png"} alt="google-play.png" />
-              </a>
-              <a href="/" className="abutton">
-                <img src={"/app-store.png"} alt="app-store.png" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
       <SecondSection />
-
       <div className="main-three-content-wrap" ref={topWrapRef}>
         <div className="main-three-inner">
           <div className="main-three-first-wrap" ref={firstWrapRef}>
             <div className="main-innercontent-wrapper">
               <div className="main-three-left-wrap">
                 <p className="big-text">
-                  보고 싶은 <br /> 순간을 <br /> 더 가까이!
-                </p>
-                <p className="small-text">
-                  팔로잉한 사람들의 영상으로 <br /> 아티스트를 만나보세요.
+                  내 아티스트<br />더 많이!<br />더 가까이!
                 </p>
               </div>
+              <div className="main-three-center-wrap">
+                <Lottie className="main-fir-lottie" animationData={HeartLottie} loop={true} />
+                <div className="main-three-frame">
+                  <img className="frame-img" src="/main/main_three_first_frame.png" alt="" />
+                  <img ref={onePicImgRef} src={"/main/main_three_first_pic_1.png"} alt='main_three_first_pic_1' />
+                  <img ref={twoPicImgRef} src={"/main/main_three_first_pic_2.png"} alt='main_three_first_pic_2' />
+                  <img ref={threePicImgRef} src={"/main/main_three_first_pic_3.png"} alt='main_three_first_pic_3' />
+                </div>
+               
+              </div>
               <div className="main-three-right-wrap">
-                <img src={"/main-top/pic-1.png"} />
+                <p className="small-text">
+                  짧고 강렬한 영상 속,
+                  <br />
+                  생생한 아티스트의 순간들!
+                  <br />
+                  팬들과 함께 감상하고 공유하세요.
+                </p>
+                <div className="image-box">
+                  <div className="icons">
+                    <img src="/main/main_three_first_icon_1.png" alt="main_three_first_icon_1" />
+                    <p>숏폼 감상</p>
+                  </div>
+                  <div className="icons">
+                    <img src="/main/main_three_first_icon_2.png" alt="main_three_first_icon_2" />
+                    <p>커뮤니티</p>
+                  </div>
+                  <div className="icons">
+                    <img src="/main/main_three_first_icon_3.png" alt="main_three_first_icon_3" />
+                    <p>공유</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
+          {/*  */}
           <div className="main-three-two-wrap" ref={twoWrapRef}>
             <div className="main-innercontent-wrapper">
               <div className="main-three-left-wrap">
                 <p className="big-text">
-                  너와 내가 <br /> 발견하는 <br /> 특별한 순간들!
+                  너와 내가 
+                  <br />
+                  발견하는
+                  <br />
+                  특별한 순간들!
                 </p>
-                <p className="small-text">
-                  다른 시각의 사진과 영상 속에서 <br /> 우리들의 이야기를
-                  이어가세요.
-                </p>
+                <Lottie className="main-cat-lottie" animationData={CatLottie} loop={true} />
+              </div>
+              <div className="main-three-center-wrap">
+                <div ref={firstCommentRef} className="comment-box main-second-comment-first">
+                  <p className="comment-name">김*연</p>
+                  <p className="comment-content">영상이 안 끝나요 😍😍</p>
+                </div>
+                <div ref={secondCommentRef} className="comment-box main-second-comment-second">
+                  <p className="comment-name">임*현</p>
+                  <p className="comment-content">
+                    너무 이쁘네요!! 😍
+                    <br />
+                    그냥 다른 할 말이 안 떠오름
+                  </p>
+                </div>
+                <div ref={threeCommentRef} className="comment-box main-second-comment-three">
+                  <p className="comment-name">나*주</p>
+                  <p className="comment-content">
+                    하루만 니곁에 
+                    <br />
+                    티라미수가 되고싶어 ...🍰
+                  </p>
+                </div>
+                <div className="main-three-frame">
+                  <img className="second-frame-img" src="/main/main_three_second_frame.png" alt="" />
+                  <img className="second-img" ref={twoImgRef} src={"/main/main_three_second.png"} alt='main_three_first_pic_1' />
+                </div>
               </div>
               <div className="main-three-right-wrap">
-                <img src={"/main-top/pic-2.png"} />
+                <p className="small-text">
+                  새로운 시선 속에서 마주한
+                  <br />
+                  아티스트의 순간들
+                  <br />
+                  그리고 그 속에서 펼쳐지는
+                  <br />
+                  우리만의 이야기!
+                </p>
+                <div className="image-box">
+                  <div className="icons">
+                    <img src="/main/main_three_second_icon_1.png" alt="main_three_second_icon_1" />
+                    <p>순간 포착</p>
+                  </div>
+                  <div className="icons">
+                    <img src="/main/main_three_second_icon_2.png" alt="main_three_second_icon_2" />
+                    <p>댓글</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
+          {/*  */}
           <div className="main-three-three-wrap" ref={threeWrapRef}>
             <div className="main-innercontent-wrapper">
               <div className="main-three-left-wrap">
                 <p className="big-text">
-                  아티스트의 <br /> 순간을 <br /> 더욱 특별하게!
-                </p>
-                <p className="small-text">
-                  손쉽게 영상을 편집하고 <br /> 나만의 감성을 담아보세요.
+                  쉽고
+                  <br /> 
+                  감각적인 편집
+                  <br /> 
+                  나만의
+                  <br />
+                  스타일로!
                 </p>
               </div>
+              <div className="main-three-center-wrap">
+                <Lottie className="main-star-1-lottie" animationData={StarLottie} loop={true} />
+                <Lottie className="main-star-2-lottie" animationData={StarLottie} loop={true} />
+                <div className="main-three-frame three-frame">
+                  <img className="three-frame-img" src="/main/main_three_three_frame.png" alt="" />
+                </div>
+                
+                <Lottie className="main-flower-lottie" animationData={FlowerLottie} loop={true} />
+                <img className="three-img" ref={threeImgRef} src={"/main/main_three_three_img.png"} alt='main_three_three_img' />
+              </div>
               <div className="main-three-right-wrap">
-                <img src={"/main-top/pic-3.png"} />
+                <p className="small-text">
+                  감성을 더하는 손쉬운 편집으로
+                  <br />
+                  나만의 색을 담아보세요.
+                  <br />
+                  나만의 영상, 나만의 이야기,
+                  <br />
+                  그리고 나만의 우주까지!
+                </p>
+                <div className="image-box">
+                  <div className="icons">
+                    <img src="/main/main_three_three_icon_1.png" alt="main_three_three_icon_1" />
+                    <p>필름</p>
+                  </div>
+                  <div className="icons">
+                    <img src="/main/main_three_three_icon_2.png" alt="main_three_three_icon_2" />
+                    <p>음악 삽입</p>
+                  </div>
+                  <div className="icons">
+                    <img src="/main/main_three_three_icon_3.png" alt="main_three_three_icon_3" />
+                    <p>편집</p>
+                  </div>
+                  <div className="icons">
+                    <img src="/main/main_three_three_icon_4.png" alt="main_three_three_icon_4" />
+                    <p>효과</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -235,13 +504,38 @@ export default function Home() {
                 <p className="big-text">
                   내가 남긴 <br /> 나의 별, <br /> 나만의 우주!
                 </p>
-                <p className="small-text">
-                  내가 남긴 순간들로 레벨업하고, <br /> 나만의 우주를 만들어
-                  보세요!
-                </p>
+              </div>
+              <div className="main-three-center-wrap">
+                <div className="main-three-frame four-frame">
+                  <img className="frame-img" src="/main/main_three_four_frame.png" alt="" />
+                </div>
+                <img className="four-img" ref={fourImgRef} src={"/main/main_three_four_img.png"} alt='main_three_four_img' />
+                <img className="four-img-2" src={"/main/main_three_four_img_2.png"} alt='main_three_four_img_2' />
               </div>
               <div className="main-three-right-wrap">
-                <img src={"/main-top/pic-4.png"} />
+                <p className="small-text">
+                  릴스와 게시물을
+                  <br />
+                  공유할수록 레벨 UP!
+                  <br />
+                  나만의 우주가 점점
+                  <br />
+                  더 풍성해지는 걸 느껴보세요.
+                </p>
+                <div className="image-box">
+                  <div className="icons">
+                    <img src="/main/main_three_four_icon_1.png" alt="main_three_four_icon_1" />
+                    <p>Lv.01</p>
+                  </div>
+                  <div className="icons">
+                    <img src="/main/main_three_four_icon_2.png" alt="main_three_four_icon_2" />
+                    <p>Lv.02</p>
+                  </div>
+                  <div className="icons">
+                    <img src="/main/main_three_four_icon_3.png" alt="main_three_four_icon_3" />
+                    <p>Lv.03</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -252,14 +546,17 @@ export default function Home() {
         <div className="inner-bottom-gradient-box">
           <img src={"/bottom-logo-sface.png"} alt="bottom-logo-image" />
 
-          <p className="small-text">혼자가 아닌 모두와 함께 </p>
-          <h1>아티스트의 찬란한 순간을 공유, 스페이스</h1>
-          <div className="bottom-store-wrap">
+          <h1>
+            우리만의 우주가 펼쳐지는 곳,
+            <br />
+            지금 바로 스페이스로 떠나세요!
+          </h1>
+          <div className="left-store-wrap">
             <a href="/" className="abutton">
-              <img src={"/google-play.png"} alt="google-play.png" />
+              <img src={"/main/main_top_google.png"} alt="google-play.png" />
             </a>
             <a href="/" className="abutton">
-              <img src={"/app-store.png"} alt="app-store.png" />
+              <img src={"/main/main_top_app.png"} alt="app-store.png" />
             </a>
           </div>
         </div>
