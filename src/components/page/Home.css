@@ -124,6 +124,7 @@
 }
 
 
+
 .main-three-left-wrap .big-text {
   text-align: left;
   font-size: 68px;
@@ -642,5 +643,9 @@
 
   .bottom-gradient-box h1 {
     font-size: 20px;
+  }
+
+  .ios-smooth-scroll {
+    -webkit-overflow-scrolling: touch;
   }
 }

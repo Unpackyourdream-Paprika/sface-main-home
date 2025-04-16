@@ -10,6 +10,11 @@ import StarLottie from '../../../public/main/star.json'
 import FlowerLottie from '../../../public/main/flower.json'
 import CatLottie from '../../../public/main/cat.json'
 
+// 파일 상단에 선언
+interface ExtendedCSSStyleDeclaration extends CSSStyleDeclaration {
+  webkitOverflowScrolling: string;
+}
+
 // 플러그인 등록
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,6 +38,11 @@ export default function Home() {
 
   const fourWrapRef = useRef(null);
   const fourImgRef = useRef(null)
+
+  // iOS 기기 감지 함수
+  const isIOS = (): boolean => {
+    return /iPhone|iPad|iPod/.test(navigator.userAgent);
+  };
 
   useEffect(() => {
     // 스크롤 구간을 명확하게 구분
@@ -331,6 +341,11 @@ export default function Home() {
     gsap.set(twoWrapRef.current, { y: 1000, opacity: 1 });
     gsap.set(threeWrapRef.current, { opacity: 0 });
     gsap.set(fourWrapRef.current, { opacity: 0 });
+
+    // iOS Safari에서 스크롤 성능 향상을 위한 설정
+    if (isIOS()) {
+      (document.documentElement.style as ExtendedCSSStyleDeclaration).webkitOverflowScrolling = 'touch';
+    }
 
     // 컴포넌트 언마운트 시 ScrollTrigger 정리
     return () => {
