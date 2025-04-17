@@ -4,6 +4,7 @@
   max-width: 1920px;
   margin: 0 auto;
   background-color: #000;
+  min-height: 100dvh;
 }
 
 * {

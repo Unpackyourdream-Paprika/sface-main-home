@@ -9,6 +9,7 @@ import HeartLottie from '../../../public/main/heart.json'
 import StarLottie from '../../../public/main/star.json'
 import FlowerLottie from '../../../public/main/flower.json'
 import CatLottie from '../../../public/main/cat.json'
+import SfaceLottie from '../../../public/main/sface.json'
 
 // 파일 상단에 선언
 interface ExtendedCSSStyleDeclaration extends CSSStyleDeclaration {
@@ -645,7 +646,7 @@ export default function Home() {
                   <img className="frame-img" src="/main/main_three_four_frame.png" alt="" />
                 </div>
                 <img className="four-img" ref={fourImgRef} src={"/main/main_three_four_img.png"} alt='main_three_four_img' />
-                <img className="four-img-2" src={"/main/main_three_four_img_2.png"} alt='main_three_four_img_2' />
+                <Lottie className="main-sface-lottie" animationData={SfaceLottie} loop={true} />
               </div>
               {isResponsive !== 'mobile' && (
                 <div className="main-three-right-wrap">

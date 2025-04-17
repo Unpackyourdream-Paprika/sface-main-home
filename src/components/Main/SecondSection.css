@@ -17,6 +17,7 @@
   background-image: url("/public/main/main_sec_bg.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   padding: 0 24px;
 }
 
@@ -34,7 +35,7 @@
   flex-direction: column;
 }
 
-.second-section .second-inner-content video{
+.second-section .second-inner-content .main-ufo-lottie{
   width: 400px;
 }
 
@@ -54,7 +55,7 @@
   font-weight: 500;
 }
 @media (max-width: 1024px) { 
-  .second-section .second-inner-content video {
+  .second-section .second-inner-content .main-ufo-lottie {
     width: 300px;
   }
   .second-section .second-inner-text {
@@ -75,7 +76,7 @@
     padding: 0px 35px;
   }
 
-  .second-section .second-inner-content video {
+  .second-section .second-inner-content .main-ufo-lottie {
     width: 200px;
   }
 

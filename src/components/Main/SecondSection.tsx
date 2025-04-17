@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useHeaderStateStore } from "../../store/useHeaderStore";
 import "./SecondSection.css";
+import Lottie from "lottie-react";
+import UFOLottie from '../../../public/main/UFO.json'
 
 export default function SecondSection() {
   const { isResponsive, setIsResponsive } = useHeaderStateStore()
@@ -71,14 +73,15 @@ export default function SecondSection() {
           </div>
         </div>
         <div className="second-inner-content">
-          <video
+          {/* <video
             src={"/main-top/UFO-transparent.webm"}
             autoPlay
             loop
             muted
             playsInline
             // style={{ width: "100%", minWidth: "340px" }}
-          />
+          /> */}
+          <Lottie className="main-ufo-lottie" animationData={UFOLottie} loop={true} />
           <h4 className="second-inner-text">
             혼자가 아닌 모두와 함께, 
             <br />
