@@ -187,7 +187,7 @@ export default function Home() {
         });
         gsap.to(twoImgRef.current, {
           y: isResponsive === 'mobile' 
-          ? -340 
+          ? -310 
           : isResponsive === 'tablet'
           ? -430
           : -500,
@@ -365,7 +365,7 @@ export default function Home() {
                 <p className="big-text">
                   내 아티스트
                   <br />
-                  더 많이!
+                  더 많이!&nbsp;
                   {isResponsive !== 'mobile' && (
                     <br />
                   )}
@@ -385,12 +385,12 @@ export default function Home() {
                       <p>숏폼 감상</p>
                     </div>
                     <div className="icons">
-                      <img src="/main/main_three_first_icon_2.png" alt="main_three_first_icon_2" />
-                      <p>커뮤니티</p>
-                    </div>
-                    <div className="icons">
                       <img src="/main/main_three_first_icon_3.png" alt="main_three_first_icon_3" />
                       <p>공유</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_first_icon_2.png" alt="main_three_first_icon_2" />
+                      <p>커뮤니티</p>
                     </div>
                   </div>
                 </div>
@@ -419,12 +419,12 @@ export default function Home() {
                       <p>숏폼 감상</p>
                     </div>
                     <div className="icons">
-                      <img src="/main/main_three_first_icon_2.png" alt="main_three_first_icon_2" />
-                      <p>커뮤니티</p>
-                    </div>
-                    <div className="icons">
                       <img src="/main/main_three_first_icon_3.png" alt="main_three_first_icon_3" />
                       <p>공유</p>
+                    </div>
+                    <div className="icons">
+                      <img src="/main/main_three_first_icon_2.png" alt="main_three_first_icon_2" />
+                      <p>커뮤니티</p>
                     </div>
                   </div>
                 </div>
