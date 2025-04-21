@@ -62,10 +62,10 @@ export default function SecondSection() {
                 바로 여기, 스페이스에서
               </p>
               <div className="left-store-wrap">
-                <a href="/" className="abutton">
+                <a href="https://play.google.com/store/apps/details?id=xyz.kiorobo.sface&hl=ko&pli=1" target="_blank" className="abutton">
                   <img src={"/main/main_top_google.png"} alt="google-play.png" />
                 </a>
-                <a href="/" className="abutton">
+                <a href="https://apps.apple.com/us/app/sface/id6739119853" target="_blank" className="abutton">
                   <img src={"/main/main_top_app.png"} alt="app-store.png" />
                 </a>
               </div>
