@@ -5,6 +5,7 @@ import Home from "./components/page/Home";
 import About from "./components/page/About";
 import Contact from "./components/page/Contact";
 import TermsOfService from "./components/page/TermsOfService";
+import ShareFeed from './components/page/ShareFeed'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/share-feed/:feed_idx" element={<ShareFeed />} />
         </Route>
 
         {/* 레이아웃 없이 렌더링되는 별도 페이지 */}

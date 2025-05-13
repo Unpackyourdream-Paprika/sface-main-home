@@ -12,6 +12,8 @@ export default function LayoutHeader() {
   const { isHeaderState } = useHeaderStateStore();
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  
+  const hideLink = location.pathname.startsWith("/share-feed/");
 
   // console.log(isHeaderState, "isHeaderState?");
 
@@ -35,6 +37,7 @@ export default function LayoutHeader() {
   };
 
   const onClickLogo = () => {
+    if (hideLink) return
     navigate("/");
     if (isMenuOpen) setIsMenuOpen(false);
   };
