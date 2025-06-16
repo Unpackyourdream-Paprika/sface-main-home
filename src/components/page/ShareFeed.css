@@ -43,11 +43,11 @@
     line-height: 120%;
 }
 
-.bottom-gradient-box .left-store-wrap {
+.share-wrap .bottom-gradient-box .left-store-wrap {
     display: flex;
     gap: 50px; 
 }
 
-.bottom-gradient-box .left-store-wrap img {
+.share-wrap .bottom-gradient-box .left-store-wrap img {
     width: 220px;
 }
