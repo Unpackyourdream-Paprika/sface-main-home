@@ -455,11 +455,11 @@ export default function Home() {
                   </p>
                   <div className="image-box">
                     <div className="icons">
-                      <img src="/main/main_three_second_icon_1.png" alt="main_three_second_icon_1" />
+                      <img src="/main/main_three_second_icon_2.png" alt="main_three_second_icon_2" />
                       <p>순간 포착</p>
                     </div>
                     <div className="icons">
-                      <img src="/main/main_three_second_icon_2.png" alt="main_three_second_icon_2" />
+                      <img src="/main/main_three_second_icon_1.png" alt="main_three_second_icon_1" />
                       <p>댓글</p>
                     </div>
                   </div>
@@ -504,11 +504,11 @@ export default function Home() {
                   </p>
                   <div className="image-box">
                     <div className="icons">
-                      <img src="/main/main_three_second_icon_1.png" alt="main_three_second_icon_1" />
+                      <img src="/main/main_three_second_icon_2.png" alt="main_three_second_icon_2" />
                       <p>순간 포착</p>
                     </div>
                     <div className="icons">
-                      <img src="/main/main_three_second_icon_2.png" alt="main_three_second_icon_2" />
+                      <img src="/main/main_three_second_icon_1.png" alt="main_three_second_icon_1" />
                       <p>댓글</p>
                     </div>
                   </div>
